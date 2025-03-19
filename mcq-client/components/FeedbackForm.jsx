@@ -1,14 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { getUserFeedback, submitFeedback } from '../services/api';
 
-const FeedbackForm = ({userId}) => {
+const FeedbackForm = ({ userId }) => {
     const [submitted, setSubmitted] = useState(false);
-    const navigate = useNavigate();
 
-    // ✅ Emoji Options
+    useEffect(() => {
+        const fetchFeedback = async () => {
+            try {
+                const response = await getUserFeedback(userId);
+                if (response.data.length > 0) {
+                    setSubmitted(true);
+                }
+            } catch (error) {
+                console.error('❌ Error fetching results:', error);
+            }
+        };
+        fetchFeedback();
+    }, []);
+
     const emojiRatings = [
         { label: '😡', value: 1 },
         { label: '😞', value: 2 },
@@ -26,8 +39,10 @@ const FeedbackForm = ({userId}) => {
             .max(500, 'Comments cannot exceed 500 characters')
     });
 
-    const handleSubmit = (values, { resetForm }) => {
-        console.log('Feedback Submitted:', {...values, userId});
+    const handleSubmit = async (values, { resetForm }) => {
+        console.log('Feedback Submitted:', { ...values, userId });
+        const response = await submitFeedback({ ...values, userId });
+        console.log(response);
         setSubmitted(true);
         resetForm();
     };

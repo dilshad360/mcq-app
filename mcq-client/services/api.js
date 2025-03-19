@@ -39,4 +39,8 @@ export const submitTest = (data) => API.post('/test/submit', data );
 
 export const getResults = (id) => API.get(`/test/results/${id}`);
 
+export const submitFeedback = (data) => API.post('/feedback', data);  
+
+export const getUserFeedback = (userId) =>API.get(`/feedback/${userId}`);
+
 
