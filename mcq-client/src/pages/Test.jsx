@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '../context/authContext';
-import { getQuestions, submitTest } from '../../services/api';
+import { getQuestions, getResults, submitTest } from '../../services/api';
+import { useNavigate } from 'react-router-dom';
 
 export default function Test() {
     const { logout, user } = useAuth();
@@ -8,7 +9,23 @@ export default function Test() {
     const [selectedAnswers, setSelectedAnswers] = useState({}); // Track selected answers
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0); // Track current question
 
+    const navigate = useNavigate();
+
     useEffect(() => {
+
+        const fetchResults = async () => {
+            try {
+                const response = await getResults(user.user.id);
+                if (response.data.length > 0) {
+                    navigate('/result')
+                }
+                console.log(response.data)
+            } catch (error) {
+                console.error('Error fetching questions:', error.message);
+            }
+        };
+
+
         const fetchQuestions = async () => {
             try {
                 const response = await getQuestions(); // Fetch questions from API
@@ -18,6 +35,7 @@ export default function Test() {
             }
         };
 
+        fetchResults();
         fetchQuestions(); // Call the async function
     }, []);
 
@@ -30,7 +48,7 @@ export default function Test() {
 
     const handleSubmit = async () => {
         if (questions.every((question) => selectedAnswers[question._id])) {
-    
+
 
             const data = {
                 userId: user.user.id,
@@ -38,10 +56,11 @@ export default function Test() {
             }
 
             const response = await submitTest(data);
+            navigate('/result')
 
             console.log(response)
 
-            
+
             // Implement submission logic here
         } else {
             alert('Please answer all questions before submitting.');
@@ -77,9 +96,8 @@ export default function Test() {
                             <li key={question._id} className="mb-2">
                                 <button
                                     onClick={() => handleNavigate(index)}
-                                    className={`btn btn-sm ${
-                                        index === currentQuestionIndex ? 'btn-active' : 'btn-outline'
-                                    }`}
+                                    className={`btn btn-sm ${index === currentQuestionIndex ? 'btn-active' : 'btn-outline'
+                                        }`}
                                 >
                                     Question {index + 1}
                                 </button>

@@ -5,7 +5,7 @@ import { login } from '../../services/api';
 import { useAuth } from '../context/authContext';
 
 const Login = () => {
-    const navigate = useNavigate();
+   
 
     const { login: authLogin } = useAuth();
 

@@ -36,3 +36,7 @@ export const login = (data) => API.post('/auth/login', data);
 export const getQuestions = () => API.get('/questions');
 
 export const submitTest = (data) => API.post('/test/submit', data );
+
+export const getResults = (id) => API.get(`/test/results/${id}`);
+
+
