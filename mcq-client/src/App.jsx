@@ -20,7 +20,6 @@ const App = () => {
   return (
     <BrowserRouter>
     <AuthProvider>
-        {/* <Navbar /> */}
         <Routes>
           <Route path="/" element={<GuestRoute><Login /></GuestRoute>} />
           <Route path="/register" element={<GuestRoute><Register /></GuestRoute>} />

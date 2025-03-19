@@ -22,8 +22,6 @@ const Login = () => {
             const { data } = await login(values);
             localStorage.setItem('token', data.token);
             login(data.token);
-            alert('Login successful');
-            // navigate('/test');
         } catch (error) {
             console.error('Login failed:', error.message);
         }
@@ -32,7 +30,6 @@ const Login = () => {
 
     return (
         <div className="min-h-screen flex items-center justify-center">
-            <p className='text-red-500'>sdsd</p>
             <div className="card w-96 shadow-xl">
                 <div className="card-body">
                     <h2 className="card-title">Login</h2>
