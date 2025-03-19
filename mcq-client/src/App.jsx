@@ -4,13 +4,12 @@ import Register from './pages/Register';
 import Test from './pages/Test';
 import { AuthProvider, useAuth } from './context/authContext';
 
-// ✅ Protected route component
+
 const ProtectedRoute = ({ children }) => {
   const { user } = useAuth();
   return user ? children : <Navigate to="/" />;
 };
 
-// ✅ Redirect logged-in users away from login/register
 const GuestRoute = ({ children }) => {
   const { user } = useAuth();
   return user ? <Navigate to="/test" /> : children;

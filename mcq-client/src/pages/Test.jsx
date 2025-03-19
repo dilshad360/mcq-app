@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '../context/authContext';
-import { getQuestions } from '../../services/api';
+import { getQuestions, submitTest } from '../../services/api';
 
 export default function Test() {
-    const { logout } = useAuth();
+    const { logout, user } = useAuth();
     const [questions, setQuestions] = useState([]); // Hold fetched questions
     const [selectedAnswers, setSelectedAnswers] = useState({}); // Track selected answers
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0); // Track current question
@@ -28,9 +28,20 @@ export default function Test() {
         }));
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         if (questions.every((question) => selectedAnswers[question._id])) {
-            console.log('Selected Answers:', selectedAnswers);
+    
+
+            const data = {
+                userId: user.user.id,
+                selectedAnswers: selectedAnswers
+            }
+
+            const response = await submitTest(data);
+
+            console.log(response)
+
+            
             // Implement submission logic here
         } else {
             alert('Please answer all questions before submitting.');
