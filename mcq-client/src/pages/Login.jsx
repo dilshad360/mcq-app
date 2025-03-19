@@ -20,7 +20,7 @@ const Login = () => {
     const handleSubmit = async (values) => {
         try {
             const { data } = await login(values);
-            authLogin(data.token);
+            authLogin(data);
         } catch (error) {
             console.error('Login failed:', error.message);
         }

@@ -11,21 +11,29 @@ export const AuthProvider = ({ children }) => {
     // Check for token in localStorage
     useEffect(() => {
         const token = localStorage.getItem('token');
-        if (token) {
-            setUser({ token });
+        const storedUser = localStorage.getItem('user');
+        if (token && storedUser) {
+            setUser({
+                token,
+                user: JSON.parse(storedUser), 
+            });
         }
     }, []);
 
     // ✅ Login function
-    const login = (token) => {
-        localStorage.setItem('token', token);
-        setUser({ token });
-        navigate('/test');  // Redirect to protected route
+    const login = (data) => {
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('user', JSON.stringify(data.user));
+    
+        setUser({ token: data.token, user: data.user });
+        navigate('/test');
     };
+    
 
     // ✅ Logout function
     const logout = () => {
         localStorage.removeItem('token');
+        localStorage.removeItem('user');
         setUser(null);
         navigate('/');
     };

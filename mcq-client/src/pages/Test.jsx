@@ -22,6 +22,8 @@ export default function Test() {
         fetchQuestions(); // Call the async function
     }, []);
 
+    console.log(user)
+
     return (
         <div>
             <button onClick={logout}  className="btn btn-error">Logout</button>
