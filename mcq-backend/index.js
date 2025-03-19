@@ -1,5 +1,8 @@
 const express = require('express');
+const { default: connectDB } = require('./config/db');
 const app = express();
+
+connectDB();
 
 // Define a basic route
 app.get('/', (req, res) => {
