@@ -7,7 +7,7 @@ import { useAuth } from '../context/authContext';
 const Login = () => {
     const navigate = useNavigate();
 
-    const { login } = useAuth();
+    const { login: authLogin } = useAuth();
 
     const initialValues = { mobile: '', password: '' };
 
@@ -20,8 +20,7 @@ const Login = () => {
     const handleSubmit = async (values) => {
         try {
             const { data } = await login(values);
-            localStorage.setItem('token', data.token);
-            login(data.token);
+            authLogin(data.token);
         } catch (error) {
             console.error('Login failed:', error.message);
         }
