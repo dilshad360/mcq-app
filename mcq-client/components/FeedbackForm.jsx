@@ -49,12 +49,11 @@ const FeedbackForm = ({ userId }) => {
 
     return (
         <div className="flex items-center justify-center">
-            <div className="card w-full max-w-2xl bg-base-100 shadow-xl p-6">
-                <h2 className="text-2xl font-bold mb-4">Feedback Form</h2>
-
+            <div className="card min-w-[850px] shadow-xl p-6">
+                <h2 className="font-bold mb-5">Feedback</h2>
                 {submitted ? (
                     <div className="text-green-500 text-center">
-                        ✅ Thank you for your feedback!
+                        Thank you for your feedback!
                     </div>
                 ) : (
                     <Formik
@@ -64,10 +63,11 @@ const FeedbackForm = ({ userId }) => {
                     >
                         {({ setFieldValue, values }) => (
                             <Form className="space-y-4">
-                                {/* ✅ Emoji Rating */}
+                            
                                 <div className="form-control">
-                                    <label className="label font-bold">Rate Your Experience:</label>
-                                    <div className="flex justify-between space-x-4">
+                <h6 className="font-semibold text-xl ">Give us a feedback!</h6>
+                                    <label className="label ">Your input is important for us. We take customer feedback very seriously.</label>
+                                    <div className="flex  space-x-4 pt-6">
                                         {emojiRatings.map((emoji) => (
                                             <button
                                                 key={emoji.value}
@@ -83,22 +83,21 @@ const FeedbackForm = ({ userId }) => {
                                     <ErrorMessage name="rating" component="div" className="text-red-500 text-sm mt-1" />
                                 </div>
 
-                                {/* ✅ Comments */}
+                            
                                 <div className="form-control">
-                                    <label className="label font-bold">Comments:</label>
                                     <Field
                                         as="textarea"
                                         name="comments"
                                         rows="5"
-                                        placeholder="Enter your comments here..."
-                                        className="textarea textarea-bordered w-full"
+                                        placeholder="add a comments"
+                                        className="textarea textarea-bordered w-full bg-[#f3f4f6] mt-6"
                                     />
                                     <ErrorMessage name="comments" component="div" className="text-red-500 text-sm mt-1" />
                                 </div>
 
-                                {/* ✅ Submit Button */}
-                                <div className="text-center">
-                                    <button type="submit" className="btn btn-primary w-full">
+                    
+                                <div >
+                                    <button type="submit" className="btn btn-primary w-1/2">
                                         Submit Feedback
                                     </button>
                                 </div>

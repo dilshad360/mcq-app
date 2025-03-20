@@ -34,14 +34,17 @@ const Result = () => {
                 <div className=" flex flex-col items-center justify-center">
                     <img src="/assets/tick.svg" width={80} height={80} alt="" />
                     <p className='text-xl' >Congratulations you have Succesfully Completed The Test</p>
-                    <div>
-                        <span>Score :</span>
-                        <span className="text-green-500"> {result.score}</span> /
-                        <span className="text-blue-500"> {result.answers.length * 5}</span>
-
-                        <p className="text-sm text-gray-500">Test ID: {result._id}</p>
+                    <div className='text-center py-2 text-xl font-semibold flex gap-4 items-center' >
+                        <span >Score :</span>
+                        <div className='bg-[#fac167] px-6 py-2 rounded-full' >
+                            <span > {result.score}</span>/
+                            <span >{result.answers.length * 5}</span>
+                        </div>
                     </div>
-                    <div className="mt">
+                    <div className='bg-primary px-4 py-2 text-[24px] text-white font-semibold uppercase rounded-lg mt-2'>
+                        <span>Your ID: {result._id.substring(0, 6)}</span>
+                    </div>
+                    <div className="mt-6">
                         <FeedbackForm userId={user.user.id} />
                     </div>
 
