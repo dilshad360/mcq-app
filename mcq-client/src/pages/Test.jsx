@@ -4,6 +4,7 @@ import { getQuestions, getResults, submitTest } from "../services/api";
 import { useNavigate } from "react-router-dom";
 import Navigation from "../components/Navigation";
 import QuestionCard from "../components/QuestionCard";
+import Progress from "../components/Progress";
 
 const Test = () => {
 

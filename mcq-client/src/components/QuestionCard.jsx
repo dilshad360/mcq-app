@@ -1,4 +1,5 @@
 import React from "react";
+import Progress from "./Progress";
 
 const QuestionCard = ({
     currentQuestion,
@@ -14,6 +15,7 @@ const QuestionCard = ({
 
     return (
         <div className="w-[80%] px-16 py-4">
+            <Progress currentQuestion={currentQuestionIndex} questionsLength={questionsLength} />
             <div className="bg-[#f4f4f4] rounded-lg p-5">
                 <div className="flex gap-4 items-center pb-8">
                     <div className="text-xl font-semibold w-[50px] h-[50px] bg-primary flex items-center justify-center text-white rounded-full">
