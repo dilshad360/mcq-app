@@ -6,7 +6,8 @@ import Navigation from "../../components/Navigation";
 import QuestionCard from "../../components/QuestionCard";
 
 const Test = () => {
-    const { logout, user } = useAuth();
+    
+    const { user } = useAuth();
     const [questions, setQuestions] = useState([]);
     const [selectedAnswers, setSelectedAnswers] = useState({});
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);

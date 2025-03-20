@@ -48,7 +48,7 @@ const FeedbackForm = ({ userId }) => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center">
+        <div className="flex items-center justify-center">
             <div className="card w-full max-w-2xl bg-base-100 shadow-xl p-6">
                 <h2 className="text-2xl font-bold mb-4">Feedback Form</h2>
 

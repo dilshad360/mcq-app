@@ -27,31 +27,26 @@ const Result = () => {
         fetchResults();
     }, [navigate, user]);
 
+
     return (
-        <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-            <div className="card w-full max-w-3xl bg-base-100 shadow-xl p-8">
-                <h2 className="text-3xl font-bold text-center text-primary">Test Results</h2>
+        <div className="min-h-screen bg-gray-100 flex items-center justify-center px-6 pb-6 pt-24">
+            {result && (
+                <div className=" flex flex-col items-center justify-center">
+                    <img src="/assets/tick.svg" width={80} height={80} alt="" />
+                    <p className='text-xl' >Congratulations you have Succesfully Completed The Test</p>
+                    <div>
+                        <span>Score :</span>
+                        <span className="text-green-500"> {result.score}</span> /
+                        <span className="text-blue-500"> {result.answers.length * 5}</span>
 
-                {result && (
-                    <div className="mt-6">
-                        <div className="flex justify-between items-center mb-4">
-                            <p className="text-xl font-semibold">
-                                🏅 Score:
-                                <span className="text-green-500"> {result.score}</span> /
-                                <span className="text-blue-500"> {result.answers.length * 5}</span>
-                            </p>
-                            <p className="text-sm text-gray-500">Test ID: {result._id}</p>
-                        </div>
-
-
-
-                        <div className="mt-6">
-                            <h3 className="text-xl font-bold text-center">Feedback</h3>
-                            <FeedbackForm userId={user.user.id}  />
-                        </div>
+                        <p className="text-sm text-gray-500">Test ID: {result._id}</p>
                     </div>
-                )}
-            </div>
+                    <div className="mt">
+                        <FeedbackForm userId={user.user.id} />
+                    </div>
+
+                </div>
+            )}
         </div>
     );
 };
