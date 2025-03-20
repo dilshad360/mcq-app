@@ -99,7 +99,10 @@ const Test = () => {
     return (
         <div className="px-2 md:px-6 pb-6 pt-24">
             <h1 className="text-xl md:text-3xl text-center text-primary font-bold mb-4">
-                Assess Your Intelligence
+
+                Assess Your  <span className="relative inline-block" > Intelligence
+                <span className="absolute bottom-2 left-0 w-full h-[8px] bg-[#fac167] z-[-1]"></span>
+                </span>
             </h1>
             <div className="flex justify-center ">
 

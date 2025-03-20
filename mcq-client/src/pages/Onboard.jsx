@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Onboard() {
   const [isChecked, setIsChecked] = useState(false);
@@ -11,31 +11,41 @@ export default function Onboard() {
 
   const handleButtonClick = () => {
     if (isChecked) {
-      router('/');
+      router("/");
     }
   };
 
   return (
-    <div className=''>
-      <div className='flex flex-col items-center justify-center px-2 md:px-0 h-[66vh] md:h-[80vh]'>
-        <h1 className='text-2xl md:text-[74px] font-bold'>Welcome to TSEEP Mastery Box</h1>
-        <p className='md:text-[28px]'>Unlock the potential with AI inspired tool</p>
+    <div className="">
+      <div className="flex flex-col items-center justify-center px-2 md:px-0 h-[66vh] md:h-[80vh]">
+        <h1 className="text-2xl md:text-[74px] font-semibold relative">
+          Welcome to{" "}
+          <span className="relative inline-block">
+            TSEEP Mastery Box
+            <span className="absolute bottom-4 left-0 w-full h-[18px] bg-[#fac167] z-[-1]"></span>
+          </span>
+        </h1>
+
+        <p className="md:text-[28px]">
+          Unlock the potential with AI inspired tool
+        </p>
       </div>
-      <div className='flex md:flex-row flex-col justify-between md:mx-28 pt-10 px-2 md:px-0  border-t border-t-gray-400'>
-        <div className='flex items-center gap-3'>
+      <div className="flex md:flex-row flex-col justify-between md:mx-28 pt-10 px-2 md:px-0  border-t border-t-gray-400">
+        <div className="flex items-center gap-3">
           <input
             type="checkbox"
             className="checkbox checkbox-primary rounded"
             onChange={handleCheckboxChange}
           />
-          <p className='text-xs md:text-[18px] font-medium'>
-            I confirm that I have read and accept the terms and conditions and privacy policy.
+          <p className="text-xs md:text-[18px] font-medium">
+            I confirm that I have read and accept the terms and conditions and
+            privacy policy.
           </p>
         </div>
         <button
           className={`btn btn-primary w-[180px] mt-2 md:mt-0`}
           onClick={handleButtonClick}
-          disabled={!isChecked} 
+          disabled={!isChecked}
         >
           Get Started
         </button>

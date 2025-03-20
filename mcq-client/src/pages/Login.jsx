@@ -26,7 +26,10 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center">
-      <h2 className="card-title text-[32px] text-primary pb-3">Login</h2>
+      <h2 className="card-title text-[32px] text-primary pb-3 relative">Login
+      <span className="absolute bottom-4 left-0 w-full h-[8px] bg-[#fac167] z-[-1]"></span>
+
+      </h2>
       <div className="card md:w-[440px] shadow-xl">
         <div className="card-body">
           <Formik

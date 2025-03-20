@@ -40,7 +40,8 @@ const Register = () => {
 
     return (
         <div className="min-h-screen flex flex-col items-center justify-center pt-20 md:pt-0">
-            <h2 className="card-title text-[32px] text-primary pb-3">Register</h2>
+            <h2 className="card-title text-[32px] text-primary pb-3 relative">Register
+            </h2>
             <div className="card md:w-[440px] shadow-xl ">
                 <div className="card-body">
                     <Formik
