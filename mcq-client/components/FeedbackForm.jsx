@@ -23,11 +23,11 @@ const FeedbackForm = ({ userId }) => {
     }, []);
 
     const emojiRatings = [
-        { label: '😡', value: 1 },
-        { label: '😞', value: 2 },
-        { label: '😐', value: 3 },
-        { label: '😊', value: 4 },
-        { label: '😍', value: 5 }
+        { image: '/assets/emoji/1.png', value: 1 },
+        { image: '/assets/emoji/2.png', value: 2 },
+        { image: '/assets/emoji/3.png', value: 3 },
+        { image: '/assets/emoji/4.png', value: 4 },
+        { image: '/assets/emoji/5.png', value: 5 }
     ];
 
 
@@ -47,15 +47,12 @@ const FeedbackForm = ({ userId }) => {
         resetForm();
     };
 
+    if(submitted) return null
+
     return (
         <div className="flex items-center justify-center">
             <div className="card min-w-[850px] shadow-xl p-6">
                 <h2 className="font-bold mb-5">Feedback</h2>
-                {submitted ? (
-                    <div className="text-green-500 text-center">
-                        Thank you for your feedback!
-                    </div>
-                ) : (
                     <Formik
                         initialValues={{ rating: '', comments: '' }}
                         validationSchema={validationSchema}
@@ -70,14 +67,13 @@ const FeedbackForm = ({ userId }) => {
                                     <div className="flex  space-x-4 pt-6">
                                         {emojiRatings.map((emoji) => (
                                             <button
-                                                key={emoji.value}
-                                                type="button"
-                                                onClick={() => setFieldValue('rating', emoji.value)}
-                                                className={`text-4xl p-2 rounded-full transition-all ${values.rating === emoji.value ? 'bg-green-300' : 'bg-gray-200'
-                                                    } hover:bg-green-300`}
-                                            >
-                                                {emoji.label}
-                                            </button>
+                                            key={emoji.value}
+                                            type="button"
+                                            onClick={() => setFieldValue('rating', emoji.value)}
+                                            className={`flex items-center justify-center text-4xl w-[70px] h-[70px] rounded-full transition-all ${values.rating === emoji.value ? 'bg-green-300' : 'bg-gray-200'} hover:bg-green-300`}
+                                        >
+                                            <img src={emoji.image} className={`${values.rating === emoji.value ? '' : 'grayscale'}  `} width="40" height="40" alt={emoji.value} />
+                                        </button>
                                         ))}
                                     </div>
                                     <ErrorMessage name="rating" component="div" className="text-red-500 text-sm mt-1" />
@@ -104,7 +100,6 @@ const FeedbackForm = ({ userId }) => {
                             </Form>
                         )}
                     </Formik>
-                )}
             </div>
         </div>
     );
