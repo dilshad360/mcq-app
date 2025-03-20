@@ -17,11 +17,11 @@ export default function Onboard() {
 
   return (
     <div className=''>
-      <div className='flex flex-col items-center justify-center h-[86vh]'>
+      <div className='flex flex-col items-center justify-center h-[80vh]'>
         <h1 className='text-[74px] font-bold'>Welcome to TSEEP Mastery Box</h1>
         <p className='text-[28px]'>Unlock the potential with AI inspired tool</p>
       </div>
-      <div className='flex justify-between px-28'>
+      <div className='flex justify-between mx-28 pt-10  border-t border-t-gray-400'>
         <div className='flex items-center gap-3'>
           <input
             type="checkbox"
