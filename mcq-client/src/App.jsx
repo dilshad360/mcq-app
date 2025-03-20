@@ -4,6 +4,7 @@ import Register from './pages/Register';
 import Test from './pages/Test';
 import { AuthProvider, useAuth } from './context/authContext';
 import Result from './pages/Result';
+import Onboard from './pages/Onboard';
 
 const ProtectedRoute = ({ children }) => {
   const { user } = useAuth();
@@ -37,6 +38,7 @@ const App = () => {
           {/* Guest Routes */}
           <Route path="/" element={<GuestRoute><Login /></GuestRoute>} />
           <Route path="/register" element={<GuestRoute><Register /></GuestRoute>} />
+          <Route path="/onboard" element={<GuestRoute><Onboard /></GuestRoute>} />
 
           {/* Protected Routes */}
           <Route path="/test" element={<ProtectedRoute><Test /></ProtectedRoute>} />
