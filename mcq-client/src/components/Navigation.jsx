@@ -2,7 +2,7 @@ import React from "react";
 
 const Navigation = ({ questions, currentQuestionIndex, handleNavigate, getButtonClass , onClose }) => {
     return (
-        <div className="w-[20%] flex flex-col justify-between min-h-[calc(100vh-200px)]">
+        <div className="w-[20%] flex flex-col  ">
             <div>
                 <div className="flex justify-end" >
                 <img onClick={onClose} src="/assets/svg/layout.svg" className="mb-4" width={24} height={24} ></img>
@@ -25,7 +25,7 @@ const Navigation = ({ questions, currentQuestionIndex, handleNavigate, getButton
                     ))}
                 </ul>
             </div>
-            <div className="space-y-2">
+            <div className="space-y-2 md:mt-56">
                 <span className="flex items-center gap-2 text-xs">
                     <div className="w-3 h-3 bg-[#2bb673] rounded-full" />
                     Attended

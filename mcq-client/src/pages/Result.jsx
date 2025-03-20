@@ -29,11 +29,11 @@ const Result = () => {
 
 
     return (
-        <div className="min-h-screen bg-gray-100 flex items-center justify-center px-6 pb-6 pt-24">
+        <div className="min-h-screen bg-gray-100 flex items-center justify-center px-2 md:px-6 pb-6 pt-24">
             {result && (
                 <div className=" flex flex-col items-center justify-center">
                     <img src="/assets/tick.svg" width={80} height={80} alt="" />
-                    <p className='text-xl' >Congratulations you have Succesfully Completed The Test</p>
+                    <p className='md:text-xl' >Congratulations you have Succesfully Completed The Test</p>
                     <div className='text-center py-2 text-xl font-semibold flex gap-4 items-center' >
                         <span >Score :</span>
                         <div className='bg-[#fac167] px-6 py-2 rounded-full' >

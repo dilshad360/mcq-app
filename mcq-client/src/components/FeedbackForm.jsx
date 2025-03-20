@@ -47,59 +47,59 @@ const FeedbackForm = ({ userId }) => {
         resetForm();
     };
 
-    if(submitted) return null
+    if (submitted) return null
 
     return (
         <div className="flex items-center justify-center">
-            <div className="card min-w-[850px] shadow-xl p-6">
+            <div className="card md:min-w-[850px] shadow-xl p-6">
                 <h2 className="font-bold mb-5">Feedback</h2>
-                    <Formik
-                        initialValues={{ rating: '', comments: '' }}
-                        validationSchema={validationSchema}
-                        onSubmit={handleSubmit}
-                    >
-                        {({ setFieldValue, values }) => (
-                            <Form className="space-y-4">
-                            
-                                <div className="form-control">
-                <h6 className="font-semibold text-xl ">Give us a feedback!</h6>
-                                    <label className="label ">Your input is important for us. We take customer feedback very seriously.</label>
-                                    <div className="flex  space-x-4 pt-6">
-                                        {emojiRatings.map((emoji) => (
-                                            <button
+                <Formik
+                    initialValues={{ rating: '', comments: '' }}
+                    validationSchema={validationSchema}
+                    onSubmit={handleSubmit}
+                >
+                    {({ setFieldValue, values }) => (
+                        <Form className="space-y-4">
+
+                            <div className="form-control">
+                                <h6 className="font-semibold text-xl ">Give us a feedback!</h6>
+                                <p className="label text-wrap ">Your input is important for us. We take customer feedback very seriously.</p>
+                                <div className="flex  space-x-4 pt-6">
+                                    {emojiRatings.map((emoji) => (
+                                        <button
                                             key={emoji.value}
                                             type="button"
                                             onClick={() => setFieldValue('rating', emoji.value)}
-                                            className={`flex items-center justify-center text-4xl w-[70px] h-[70px] rounded-full transition-all ${values.rating === emoji.value ? 'bg-green-300' : 'bg-gray-200'} hover:bg-green-300`}
+                                            className={`flex items-center justify-center text-4xl w-8 h-8  md:w-[70px] md:h-[70px] rounded-full transition-all ${values.rating === emoji.value ? 'bg-green-300' : 'bg-gray-200'} hover:bg-green-300`}
                                         >
-                                            <img src={emoji.image} className={`${values.rating === emoji.value ? '' : 'grayscale'}  `} width="40" height="40" alt={emoji.value} />
+                                            <img src={emoji.image} className={`${values.rating === emoji.value ? '' : 'grayscale'}  w-6 h-6 md:w-[40px] md:h-[40px]`} width="40" height="40" alt={emoji.value} />
                                         </button>
-                                        ))}
-                                    </div>
-                                    <ErrorMessage name="rating" component="div" className="text-red-500 text-sm mt-1" />
+                                    ))}
                                 </div>
+                                <ErrorMessage name="rating" component="div" className="text-red-500 text-sm mt-1" />
+                            </div>
 
-                            
-                                <div className="form-control">
-                                    <Field
-                                        as="textarea"
-                                        name="comments"
-                                        rows="5"
-                                        placeholder="add a comments"
-                                        className="textarea textarea-bordered w-full bg-[#f3f4f6] mt-6"
-                                    />
-                                    <ErrorMessage name="comments" component="div" className="text-red-500 text-sm mt-1" />
-                                </div>
 
-                    
-                                <div >
-                                    <button type="submit" className="btn btn-primary w-1/2">
-                                        Submit Feedback
-                                    </button>
-                                </div>
-                            </Form>
-                        )}
-                    </Formik>
+                            <div className="form-control">
+                                <Field
+                                    as="textarea"
+                                    name="comments"
+                                    rows="5"
+                                    placeholder="add a comments"
+                                    className="textarea textarea-bordered w-full bg-[#f3f4f6] mt-6"
+                                />
+                                <ErrorMessage name="comments" component="div" className="text-red-500 text-sm mt-1" />
+                            </div>
+
+
+                            <div >
+                                <button type="submit" className="btn btn-primary w-1/2">
+                                    Submit Feedback
+                                </button>
+                            </div>
+                        </Form>
+                    )}
+                </Formik>
             </div>
         </div>
     );

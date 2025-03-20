@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Navigation from "../components/Navigation";
 import QuestionCard from "../components/QuestionCard";
 import Progress from "../components/Progress";
+import toast from "react-hot-toast";
 
 const Test = () => {
 
@@ -62,7 +63,9 @@ const Test = () => {
                 console.error("❌ Error submitting test:", error.message);
             }
         } else {
-            alert("Please answer all questions before submitting.");
+            toast('Please answer all questions before submitting.', {
+                icon: '⚠️',
+            });
         }
     };
 
@@ -109,7 +112,7 @@ const Test = () => {
                         getButtonClass={getButtonClass}
                     />
 
-                ) : <div className="flex items-start pt-6" > <img onClick={() => setShowNavigation(true)} src="/assets/svg/layout.svg" className="mb-4" width={24} height={24} ></img></div>}
+                ) : <div className="flex items-start pt-3" > <img onClick={() => setShowNavigation(true)} src="/assets/svg/layout.svg" className="mb-4" width={24} height={24} ></img></div>}
 
 
                 <QuestionCard
