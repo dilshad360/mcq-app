@@ -6,6 +6,7 @@ import { AuthProvider, useAuth } from './context/authContext';
 import Result from './pages/Result';
 import Onboard from './pages/Onboard';
 import Header from '../components/Header';
+import { Toaster } from 'react-hot-toast';
 
 const ProtectedRoute = ({ children }) => {
   const { user } = useAuth();
@@ -35,6 +36,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <AuthProvider>
+        <Toaster/>
         <Header/>
         <Routes>
           {/* Guest Routes */}

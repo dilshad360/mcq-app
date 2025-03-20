@@ -6,7 +6,7 @@ import Navigation from "../../components/Navigation";
 import QuestionCard from "../../components/QuestionCard";
 
 const Test = () => {
-    
+
     const { user } = useAuth();
     const [questions, setQuestions] = useState([]);
     const [selectedAnswers, setSelectedAnswers] = useState({});
@@ -21,7 +21,7 @@ const Test = () => {
                     navigate("/result");
                 }
             } catch (error) {
-                console.error("❌ Error fetching results", error.message);
+                // console.error("❌ Error fetching results", error.message);
             }
         };
 

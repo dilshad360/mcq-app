@@ -37,7 +37,7 @@ router.post('/register', async (req, res) => {
     }
 });
 
-// ✅ Login Route
+
 router.post('/login', async (req, res) => {
     const { mobile, password } = req.body;
 

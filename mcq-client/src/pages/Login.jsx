@@ -2,6 +2,8 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { login } from "../../services/api";
 import { useAuth } from "../context/authContext";
+import toast from "react-hot-toast";
+import { data } from "react-router-dom";
 
 const Login = () => {
   const { login: authLogin } = useAuth();
@@ -18,6 +20,7 @@ const Login = () => {
       const { data } = await login(values);
       authLogin(data);
     } catch (error) {
+      toast.error(error.response.data)
       console.error("Login failed:", error.message);
     }
   };

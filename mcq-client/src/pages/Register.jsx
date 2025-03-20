@@ -2,6 +2,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { register } from "../../services/api";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const Register = () => {
     const navigate = useNavigate();
@@ -27,7 +28,13 @@ const Register = () => {
     });
 
     const handleSubmit = async (values) => {
-        await register(values);
+        try {
+            const { data } = await register(values);
+            toast.success(data)
+        } catch (error) {
+            toast.error(error.response.data)
+            return
+        }
         navigate("/");
     };
 
