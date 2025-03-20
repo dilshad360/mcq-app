@@ -43,12 +43,12 @@ const QuestionCard = ({
                 <div className="mt-6 flex justify-end">
                     {currentQuestionIndex > 0 && (
                         <button onClick={handlePrevious} className="btn btn-primary mr-2">
-                            Previous
+                            <img src="/assets/svg/arrow.svg" className="scale-x-[-1]" width={24} alt="arrow" /> Previous
                         </button>
                     )}
                     {currentQuestionIndex < questionsLength - 1 ? (
                         <button onClick={handleNext} className="btn btn-primary">
-                            Next
+                            Next <img src="/assets/svg/arrow.svg" width={24} alt="arrow" />
                         </button>
                     ) : (
                         <button onClick={handleSubmit} className="btn btn-success">

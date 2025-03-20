@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 export default function Progress({ currentQuestion, questionsLength }) {
-    const [timeLeft, setTimeLeft] = useState(300); // 5 minutes in seconds
+    const [timeLeft, setTimeLeft] = useState(600); // 5 minutes in seconds
 
     useEffect(() => {
         if (timeLeft <= 0) return; // Stop countdown at 0
@@ -30,7 +30,9 @@ export default function Progress({ currentQuestion, questionsLength }) {
                 {currentQuestion + 1}/{questionsLength}
             </span>  
             </div>
-            <div className='bg-[#fac167] py-1 px-2 rounded'>
+            <div className='bg-[#fac167] py-1 px-2 rounded flex  gap-1 items-center'>
+            <img src="/assets/svg/clock.svg"  width={20} alt="clock" /> 
+
                 <span>{formatTime(timeLeft)}</span>
             </div>
         </div>
