@@ -5,6 +5,7 @@ import Test from './pages/Test';
 import { AuthProvider, useAuth } from './context/authContext';
 import Result from './pages/Result';
 import Onboard from './pages/Onboard';
+import Header from '../components/Header';
 
 const ProtectedRoute = ({ children }) => {
   const { user } = useAuth();
@@ -34,6 +35,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <AuthProvider>
+        <Header/>
         <Routes>
           {/* Guest Routes */}
           <Route path="/" element={<GuestRoute><Login /></GuestRoute>} />
