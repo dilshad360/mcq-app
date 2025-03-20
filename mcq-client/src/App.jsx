@@ -5,8 +5,9 @@ import Test from './pages/Test';
 import { AuthProvider, useAuth } from './context/authContext';
 import Result from './pages/Result';
 import Onboard from './pages/Onboard';
-import Header from '../components/Header';
+import Header from './components/Header';
 import { Toaster } from 'react-hot-toast';
+import NotFound from './pages/NotFound';
 
 const ProtectedRoute = ({ children }) => {
   const { user } = useAuth();
@@ -49,7 +50,7 @@ const App = () => {
           <Route path="/result" element={<ProtectedRoute><Result /></ProtectedRoute>} />
 
           {/* Catch-all route for debugging */}
-          <Route path="*" element={<div>Page not found. Available routes: /, /register, /test, /result</div>} />
+          <Route path="*" element={<NotFound/>} />
         </Routes>
       </AuthProvider>
     </BrowserRouter>

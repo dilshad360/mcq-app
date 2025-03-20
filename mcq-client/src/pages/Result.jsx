@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import FeedbackForm from '../../components/FeedbackForm';
+import FeedbackForm from '../components/FeedbackForm';
 import { useAuth } from '../context/authContext';
-import { getResults } from '../../services/api';
+import { getResults } from '../services/api';
 
 const Result = () => {
     const navigate = useNavigate();

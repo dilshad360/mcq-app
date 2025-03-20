@@ -1,9 +1,8 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { login } from "../../services/api";
+import { login } from "../services/api";
 import { useAuth } from "../context/authContext";
 import toast from "react-hot-toast";
-import { data } from "react-router-dom";
 
 const Login = () => {
   const { login: authLogin } = useAuth();

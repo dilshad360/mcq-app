@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../context/authContext";
-import { getQuestions, getResults, submitTest } from "../../services/api";
+import { getQuestions, getResults, submitTest } from "../services/api";
 import { useNavigate } from "react-router-dom";
-import Navigation from "../../components/Navigation";
-import QuestionCard from "../../components/QuestionCard";
+import Navigation from "../components/Navigation";
+import QuestionCard from "../components/QuestionCard";
 
 const Test = () => {
 

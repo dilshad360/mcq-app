@@ -1,6 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { register } from "../../services/api";
+import { register } from "../services/api";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 

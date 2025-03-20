@@ -31,7 +31,6 @@ router.post('/submit', auth, async (req, res) => {
             }
         }
 
-        // ✅ Store the result in the database
         const testResult = new TestResult({
             userId,
             answers: answersArray,
