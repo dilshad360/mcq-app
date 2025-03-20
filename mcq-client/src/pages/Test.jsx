@@ -12,6 +12,9 @@ const Test = () => {
     const [questions, setQuestions] = useState([]);
     const [selectedAnswers, setSelectedAnswers] = useState({});
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+
+    const [showNavigation, setShowNavigation] = useState(true);
+
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -91,18 +94,23 @@ const Test = () => {
     };
 
     return (
-        <div className="px-6 pb-6 pt-24">
-            <h1 className="text-3xl text-center text-primary font-bold mb-4">
+        <div className="px-2 md:px-6 pb-6 pt-24">
+            <h1 className="text-xl md:text-3xl text-center text-primary font-bold mb-4">
                 Assess Your Intelligence
             </h1>
-            <div className="flex">
-            
-                <Navigation
-                    questions={questions}
-                    currentQuestionIndex={currentQuestionIndex}
-                    handleNavigate={handleNavigate}
-                    getButtonClass={getButtonClass}
-                />
+            <div className="flex justify-center ">
+
+                {showNavigation ? (
+                    <Navigation
+                        onClose={() => setShowNavigation(false)}
+                        questions={questions}
+                        currentQuestionIndex={currentQuestionIndex}
+                        handleNavigate={handleNavigate}
+                        getButtonClass={getButtonClass}
+                    />
+
+                ) : <div className="flex items-start pt-6" > <img onClick={() => setShowNavigation(true)} src="/assets/svg/layout.svg" className="mb-4" width={24} height={24} ></img></div>}
+
 
                 <QuestionCard
                     currentQuestion={questions[currentQuestionIndex]}

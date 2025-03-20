@@ -1,10 +1,12 @@
 import React from "react";
 
-const Navigation = ({ questions, currentQuestionIndex, handleNavigate, getButtonClass }) => {
+const Navigation = ({ questions, currentQuestionIndex, handleNavigate, getButtonClass , onClose }) => {
     return (
         <div className="w-[20%] flex flex-col justify-between min-h-[calc(100vh-200px)]">
             <div>
-                <h2 className="text-lg font-semibold mb-2">Navigate</h2>
+                <div className="flex justify-end" >
+                <img onClick={onClose} src="/assets/svg/layout.svg" className="mb-4" width={24} height={24} ></img>
+                </div>
                 <ul className="grid grid-cols-4 gap-2">
                     {questions.map((question, index) => (
                         <li key={question._id} className="mb-2">

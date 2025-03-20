@@ -27,7 +27,7 @@ const Login = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center">
       <h2 className="card-title text-[32px] text-primary pb-3">Login</h2>
-      <div className="card w-[440px] shadow-xl">
+      <div className="card md:w-[440px] shadow-xl">
         <div className="card-body">
           <Formik
             initialValues={initialValues}
