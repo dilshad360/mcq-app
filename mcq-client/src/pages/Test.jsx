@@ -104,7 +104,7 @@ const Test = () => {
                 <span className="absolute bottom-2 left-0 w-full h-[8px] bg-[#fac167] z-[-1]"></span>
                 </span>
             </h1>
-            <div className="flex justify-center ">
+            <div className="flex flex-col md:flex-row justify-center ">
 
                 {showNavigation ? (
                     <Navigation

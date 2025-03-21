@@ -34,14 +34,14 @@ const Result = () => {
                 <div className=" flex flex-col items-center justify-center">
                     <img src="/assets/tick.svg" width={80} height={80} alt="" />
                     <p className='md:text-xl' >Congratulations you have Succesfully Completed The Test</p>
-                    <div className='text-center py-2 text-xl font-semibold flex gap-4 items-center' >
+                    <div className='text-center py-2 md:text-xl font-semibold flex gap-4 items-center' >
                         <span >Score :</span>
                         <div className='bg-[#fac167] px-6 py-2 rounded-full' >
                             <span > {result.score}</span>/
                             <span >{result.answers.length * 5}</span>
                         </div>
                     </div>
-                    <div className='bg-primary px-4 py-2 text-[24px] text-white font-semibold uppercase rounded-lg mt-2'>
+                    <div className='bg-primary px-4 py-2 text-sm md:text-[24px] text-white font-semibold uppercase rounded-lg mt-2'>
                         <span>Your ID: {result._id.substring(0, 6)}</span>
                     </div>
                     <div className="mt-6">

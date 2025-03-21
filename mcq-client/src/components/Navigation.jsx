@@ -2,7 +2,7 @@ import React from "react";
 
 const Navigation = ({ questions, currentQuestionIndex, handleNavigate, getButtonClass , onClose }) => {
     return (
-        <div className="w-[20%] flex flex-col  ">
+        <div className="md:w-[20%] flex flex-col  ">
             <div>
                 <div className="flex justify-end" >
                 <img onClick={onClose} src="/assets/svg/layout.svg" className="mb-4" width={24} height={24} ></img>

@@ -18,7 +18,7 @@ const QuestionCard = ({
             <Progress currentQuestion={currentQuestionIndex} questionsLength={questionsLength} />
             <div className="bg-[#f4f4f4] rounded-lg p-5">
                 <div className="flex gap-4 items-center pb-8">
-                    <div className="text-xl font-semibold w-[50px] h-[50px] bg-primary flex items-center justify-center text-white rounded-full">
+                    <div className="md:text-xl font-semibold w-[28px] h-[28px] md:w-[50px] md:h-[50px] bg-primary flex items-center justify-center text-white rounded-full">
                         {currentQuestionIndex + 1}
                     </div>
                     <h3 className="md:text-xl font-semibold">{currentQuestion.question}</h3>
